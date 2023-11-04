@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\N67.EduCourse.Application\N67.EduCourse.Application.csproj" />
+      <ProjectReference Include="..\N67.EduCourse.Persistance\N67.EduCourse.Persistance.csproj" />
+    </ItemGroup>
+
+</Project>
