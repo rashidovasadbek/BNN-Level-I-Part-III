@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Api", "N67.Ed
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Application", "N67.EduCourse.Application\N67.EduCourse.Application.csproj", "{DB829474-EAFC-4550-A9D5-30498A4E8FCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Domin", "N67.EduCourse.Domin\N67.EduCourse.Domin.csproj", "{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{DB829474-EAFC-4550-A9D5-30498A4E8FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB829474-EAFC-4550-A9D5-30498A4E8FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB829474-EAFC-4550-A9D5-30498A4E8FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
