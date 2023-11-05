@@ -6,8 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\N67.EduCourse.Domin\N67.EduCourse.Domin.csproj" />
-    </ItemGroup>
-
 </Project>
