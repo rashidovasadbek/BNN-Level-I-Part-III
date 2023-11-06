@@ -1,4 +1,4 @@
-﻿
+﻿ 
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Api", "N67.EduCourse.Api\N67.EduCourse.Api.csproj", "{08901541-6304-4975-99A5-824757F94A80}"
 EndProject
@@ -6,15 +6,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Application",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Domin", "N67.EduCourse.Domin\N67.EduCourse.Domin.csproj", "{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}"
 EndProject
-<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Persistance", "N67.EduCourse.Persistance\N67.EduCourse.Persistance.csproj", "{FD89B73E-139F-4E59-97E3-D5F4BD5FBD7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N67.EduCourse.Infrastructure", "N67.EduCourse.Infrastructure\N67.EduCourse.Infrastructure.csproj", "{86075EF5-AA12-4178-A49A-679A5507458E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "N67", "N67", "{82B7B396-4D5D-4AE3-8284-20B022A11E58}"
 EndProject
-=======
->>>>>>> master
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,7 +31,6 @@ Global
 		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{FD89B73E-139F-4E59-97E3-D5F4BD5FBD7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD89B73E-139F-4E59-97E3-D5F4BD5FBD7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD89B73E-139F-4E59-97E3-D5F4BD5FBD7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,7 +46,5 @@ Global
 		{839693D5-C059-47DF-AA9E-B9BDBAA1A7C1} = {82B7B396-4D5D-4AE3-8284-20B022A11E58}
 		{86075EF5-AA12-4178-A49A-679A5507458E} = {82B7B396-4D5D-4AE3-8284-20B022A11E58}
 		{FD89B73E-139F-4E59-97E3-D5F4BD5FBD7A} = {82B7B396-4D5D-4AE3-8284-20B022A11E58}
-=======
->>>>>>> master
 	EndGlobalSection
 EndGlobal
