@@ -1,6 +1,11 @@
+using N67.EduCourse.Api.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
+
+await builder.ConfigurAsync();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+await app.ConfigureAsync();
 
-app.Run();
+await app.RunAsync();
