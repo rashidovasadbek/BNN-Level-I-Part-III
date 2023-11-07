@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using N67.EduCourse.Domin.DTOs;
 using N67.EduCourse.Domin.Entities;
 
 namespace Persistance.DataContext;
 
 public class AppDBContext : DbContext
 {
-    public DbSet<User> Users { get; set; }
+    public DbSet<UserDto> Users { get; set; }
     
     public DbSet<Course> Courses { get; set; }
     
