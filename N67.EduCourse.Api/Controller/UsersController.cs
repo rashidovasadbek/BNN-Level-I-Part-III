@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using N67.EduCourse.Application.Common.Identity.Services;
+using N67.EduCourse.Domin.DTOs;
 using N67.EduCourse.Domin.Entities;
 
 namespace N67.EduCourse.Api.Controller;
@@ -31,16 +32,21 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public async ValueTask<IActionResult> CreateAsync([FromBody] User user)
+    public async ValueTask<IActionResult> CreateAsync([FromBody] UserDto userDto)
     {
-        var createdUser = await _userService.CreateAsync(user);
-        return CreatedAtAction(nameof(GetById), new { userId = createdUser.Id }, createdUser);
+        var createdUser = await _userService.CreateAsync(userDto);
+        return CreatedAtAction(nameof(GetById),
+            new
+            {
+                userId = createdUser.Id
+            },
+            createdUser);
     }
 
     [HttpPut]
-    public async ValueTask<IActionResult> Update([FromBody] User user)
+    public async ValueTask<IActionResult> Update([FromBody] UserDto userDto)
     {
-        await _userService.UpdateAsync(user);
+        await _userService.UpdateAsync(userDto);
         return Ok();
     }
 

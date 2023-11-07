@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using N67.EduCourse.Application.Common.Identity.Services;
+using N67.EduCourse.Domin.DTOs;
 using N67.EduCourse.Domin.Entities;
 using Persistance.DataContext;
 
@@ -14,28 +15,29 @@ public class UserService : IUserService
         _appDbContext = appDbContext;
     }
 
-    public IQueryable<User> Get(Expression<Func<User, bool>>? predicate = null)
+    public IQueryable<UserDto> Get(Expression<Func<UserDto, bool>>? predicate = null)
         => predicate != null ? _appDbContext.Users.Where(predicate) : _appDbContext.Users;
+    
 
-    public ValueTask<User?> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default)
+    public ValueTask<UserDto?> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default)
     {
         return _appDbContext.Users.FindAsync(userId);
     }
 
-    public async ValueTask<User> CreateAsync(User user, bool saveChanges = true, CancellationToken cancellationToken = default)
+    public async ValueTask<UserDto> CreateAsync(UserDto userDto, bool saveChanges = true, CancellationToken cancellationToken = default)
     {
-        user.Id = Guid.Empty;
-        await _appDbContext.Users.AddAsync(user, cancellationToken);
+        userDto.Id = Guid.Empty;
+        await _appDbContext.Users.AddAsync(userDto, cancellationToken);
 
         if (saveChanges)
             await _appDbContext.SaveChangesAsync();
 
-        return user;
+        return userDto;
     }
 
-    public async ValueTask<User> UpdateAsync(User user, bool saveChanges = true, CancellationToken cancellationToken = default)
+    public async ValueTask<UserDto> UpdateAsync(UserDto userDto, bool saveChanges = true, CancellationToken cancellationToken = default)
     {
-        var foundUser = _appDbContext.Users.FirstOrDefault(dbUser => dbUser.Id == user.Id);
+        var foundUser = _appDbContext.Users.FirstOrDefault(dbUser => dbUser.Id == userDto.Id);
 
         _appDbContext.Users.Update(foundUser);
 
@@ -45,17 +47,17 @@ public class UserService : IUserService
         return foundUser;
     }
 
-    public async ValueTask<User> DeleteAsync(User user, bool saveChanges = true, CancellationToken cancellationToken = default)
+    public async ValueTask<UserDto> DeleteAsync(UserDto userDto, bool saveChanges = true, CancellationToken cancellationToken = default)
     {
-        _appDbContext.Users.Remove(user);
+        _appDbContext.Users.Remove(userDto);
 
         if (saveChanges)
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
-        return user;
+        return userDto;
     }
 
-    public async ValueTask<User> DeleteAsync(Guid userId, bool saveChanges = true, CancellationToken cancellationToken = default)
+    public async ValueTask<UserDto> DeleteAsync(Guid userId, bool saveChanges = true, CancellationToken cancellationToken = default)
     {
         var founduser = _appDbContext.Users.Find(userId);
 
