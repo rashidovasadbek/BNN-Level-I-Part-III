@@ -1,4 +1,6 @@
-﻿namespace N67.EduCourse.Domin.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace N67.EduCourse.Domin.Entities;
 
 public class Course
 {
@@ -11,6 +13,6 @@ public class Course
     public Guid TeacherId { get; set; }
     
     public virtual User Teacher { get; set; }
-     
+   
     public virtual ICollection<CourseStudent> CourseStudents { get; set; }
 }
