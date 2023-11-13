@@ -6,7 +6,7 @@ public interface IAccountService
 {
     List<User> Users { get; }
 
-    ValueTask<bool> VerificateAsync(string token);
+    ValueTask<bool> VerificateAsync(string token, CancellationToken cancellationToken = default);
 
-    ValueTask<User> CreateUserAsync(User user);
+    ValueTask<bool> CreateUserAsync(User user, CancellationToken cancellationToken = default);
 }
