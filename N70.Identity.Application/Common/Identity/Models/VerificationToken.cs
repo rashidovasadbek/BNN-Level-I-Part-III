@@ -4,7 +4,7 @@ namespace N70.Identity.Application.Common.Identity.Models;
 
 public class VerificationToken
 {
-    public Guid Id { get; set; }
+    public Guid UserId { get; set; }
     
     public VerificationType Type { get; set; }
     
