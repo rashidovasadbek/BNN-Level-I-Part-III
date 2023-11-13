@@ -6,9 +6,11 @@ namespace N70.Identity.Persistace.DataContext;
 
 public class IdentityDbContext : DbContext
 {
-    //public DbSet<User> Users => Set<User>();
+    public DbSet<User> Users => Set<User>();
 
     public DbSet<Role> Roles => Set<Role>();
+
+    public DbSet<AccessToken> AccessTokens => Set<AccessToken>();
 
     public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options)
     {
