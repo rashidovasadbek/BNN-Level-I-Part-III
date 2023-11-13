@@ -5,7 +5,7 @@ using N70.Identity.Domin.Enums;
 
 namespace N70.Identity.Persistace.EntityConfiguration;
 
-/*public class RoleConfiguration : IEntityTypeConfiguration<Role>
+public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
     public void Configure(EntityTypeBuilder<Role> builder)
     {
@@ -30,4 +30,4 @@ namespace N70.Identity.Persistace.EntityConfiguration;
                 CreatedTime = DateTime.UtcNow,
             });
     }
-}*/
+}
