@@ -22,6 +22,33 @@ namespace N70.Identity.Persistace.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("N70.Identity.Domin.Entities.AccessToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("AccessTokens");
+                });
+
             modelBuilder.Entity("N70.Identity.Domin.Entities.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -51,7 +78,7 @@ namespace N70.Identity.Persistace.Migrations
                         new
                         {
                             Id = new Guid("6d3503ab-1a35-47b9-be09-b24ff4fbf6bf"),
-                            CreatedTime = new DateTime(2023, 11, 12, 10, 30, 33, 578, DateTimeKind.Utc).AddTicks(3034),
+                            CreatedTime = new DateTime(2023, 11, 13, 14, 18, 50, 409, DateTimeKind.Utc).AddTicks(3179),
                             IsDisabled = false,
                             ModifiedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = 2
@@ -59,7 +86,7 @@ namespace N70.Identity.Persistace.Migrations
                         new
                         {
                             Id = new Guid("7d07ea1f-9be7-48f0-ad91-5b83a5806baf"),
-                            CreatedTime = new DateTime(2023, 11, 12, 10, 30, 33, 578, DateTimeKind.Utc).AddTicks(3036),
+                            CreatedTime = new DateTime(2023, 11, 13, 14, 18, 50, 409, DateTimeKind.Utc).AddTicks(3182),
                             IsDisabled = false,
                             ModifiedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = 0
@@ -67,7 +94,7 @@ namespace N70.Identity.Persistace.Migrations
                         new
                         {
                             Id = new Guid("df290f92-dd78-4fa7-9ce3-6b0056a8b68f"),
-                            CreatedTime = new DateTime(2023, 11, 12, 10, 30, 33, 578, DateTimeKind.Utc).AddTicks(3038),
+                            CreatedTime = new DateTime(2023, 11, 13, 14, 18, 50, 409, DateTimeKind.Utc).AddTicks(3183),
                             IsDisabled = false,
                             ModifiedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Type = 1
@@ -123,6 +150,15 @@ namespace N70.Identity.Persistace.Migrations
                             PasswordHash = "",
                             RoleId = new Guid("6d3503ab-1a35-47b9-be09-b24ff4fbf6bf")
                         });
+                });
+
+            modelBuilder.Entity("N70.Identity.Domin.Entities.AccessToken", b =>
+                {
+                    b.HasOne("N70.Identity.Domin.Entities.User", null)
+                        .WithOne()
+                        .HasForeignKey("N70.Identity.Domin.Entities.AccessToken", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("N70.Identity.Domin.Entities.User", b =>
