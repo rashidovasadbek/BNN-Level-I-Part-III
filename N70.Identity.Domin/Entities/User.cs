@@ -1,9 +1,10 @@
-﻿namespace N70.Identity.Domin.Entities;
+﻿using N70.Identity.Domin.Common;
 
-public class User
+namespace N70.Identity.Domin.Entities;
+
+public class User : IEntity
 {
     public Guid Id { get; set; }
-
     public string FirstName { get; set; } = default!;
 
     public string LastName { get; set; } = default!;

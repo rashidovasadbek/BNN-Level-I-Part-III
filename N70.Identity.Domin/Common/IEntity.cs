@@ -1,6 +1,6 @@
 ﻿namespace N70.Identity.Domin.Common;
 
-public class IEntity
+public interface IEntity
 {
-   public int Id { get; set; }
+   public Guid Id { get; set; }
 }

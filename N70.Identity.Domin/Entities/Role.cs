@@ -1,8 +1,9 @@
-﻿using N70.Identity.Domin.Enums;
+﻿using N70.Identity.Domin.Common;
+using N70.Identity.Domin.Enums;
 
 namespace N70.Identity.Domin.Entities;
 
-public class Role
+public class Role : IEntity
 {
     public Guid Id { get; set; }
 
