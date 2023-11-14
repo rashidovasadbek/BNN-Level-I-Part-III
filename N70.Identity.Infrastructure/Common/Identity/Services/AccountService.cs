@@ -60,6 +60,9 @@ public class AccountService : IAccountService
     }
     public ValueTask<bool> MarkEmailAsVerifiedAsync(Guid userId)
     {
+         var foundUser = Users.FirstOrDefault(user => user.Id == userId) ?? throw new InvalidOperationException();
+ 
+        foundUser.IsEmailAddressVerified = true;
         return new(true);
     }
     

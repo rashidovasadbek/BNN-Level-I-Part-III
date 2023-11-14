@@ -19,7 +19,8 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegistrationDetails registrationDetails,
+    public async Task<IActionResult> Register(
+        [FromBody] RegistrationDetails registrationDetails,
         CancellationToken cancellationToken)
     {
         var result = await _authService.RegisterAsync(registrationDetails, cancellationToken);

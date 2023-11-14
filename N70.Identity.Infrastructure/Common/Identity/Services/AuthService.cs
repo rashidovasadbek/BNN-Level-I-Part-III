@@ -51,7 +51,7 @@ public class AuthService : IAuthService
 
         var defaultRole = await _roleService.GetByTypeAsync(RoleType.Guest, true, cancellationToken) ??
                           throw new InvalidOperationException("Role with this type doesn't exist");
-
+        
         var user = new User
         {
             Id = Guid.NewGuid(),
