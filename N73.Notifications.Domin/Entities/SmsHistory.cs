@@ -9,7 +9,7 @@ public class SmsHistory : NotificationHistory
         Type = NotificationType.Sms;
     }
 
-    public string SenderSmsAddress { get; set; } = default!;
+    public string SenderPhoneAddress { get; set; } = default!;
 
-    public string ReceiverSmsAddress { get; set; } = default!;
+    public string ReceiverPhoneAddress { get; set; } = default!;
 }
