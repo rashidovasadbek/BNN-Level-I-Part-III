@@ -7,4 +7,9 @@
         <RootNamespace>N73.Notification.Infrastructure</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\N73.Notifications.Application\N73.Notifications.Application.csproj" />
+      <ProjectReference Include="..\N73.Notifications.Persistance\N73.Notifications.Persistance.csproj" />
+    </ItemGroup>
+
 </Project>

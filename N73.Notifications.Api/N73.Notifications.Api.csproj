@@ -7,4 +7,8 @@
         <RootNamespace>Notifications.Api</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\N73.Notifications.Infrastructure\N73.Notifications.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
