@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N73.Notifications.Api", "N7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N73.Notifications.Application", "N73.Notifications.Application\N73.Notifications.Application.csproj", "{151E2D5B-AE53-4FE9-8D96-800B31E5098E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N73.Notifications.Domin", "N73.Notifications.Domin\N73.Notifications.Domin.csproj", "{98C578D6-E2BB-4D7E-94C7-F3F7D6C18024}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N73.Notifications.Domain", "N73.Notifications.Domain\N73.Notifications.Domain.csproj", "{98C578D6-E2BB-4D7E-94C7-F3F7D6C18024}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N73.Notifications.Infrastructure", "N73.Notifications.Infrastructure\N73.Notifications.Infrastructure.csproj", "{A824ADDC-282F-462D-B9CE-1CE89AA26A8D}"
 EndProject

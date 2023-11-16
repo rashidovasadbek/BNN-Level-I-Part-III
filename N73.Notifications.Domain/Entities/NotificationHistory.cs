@@ -3,7 +3,7 @@ using N73.Notifications.Domin.Enums;
 
 namespace N73.Notifications.Domin.Entities;
 
-public class NotificationHistory : IEntity
+public abstract class NotificationHistory : IEntity
 {
     public Guid Id { get; set; }
     
@@ -17,5 +17,8 @@ public class NotificationHistory : IEntity
 
     public string Content { get; set; } = default!;
     
+    public bool IsSuccessful { get; set; }
+    
+    public string? ErrorMessage { get; set; }
     public NotificationTemplate Template { get; set; }
 }
