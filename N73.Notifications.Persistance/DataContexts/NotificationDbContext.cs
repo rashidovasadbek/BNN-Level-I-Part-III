@@ -6,10 +6,9 @@ namespace N73.Notifications.Persistance.DataContexts;
 public class NotificationDbContext : DbContext
 {
 
-    //public DbSet<SmsTemplate> SmsTemplates => Set<SmsTemplate>();
+    public DbSet<SmsTemplate> SmsTemplates => Set<SmsTemplate>();
 
-    //public DbSet<SmsHistory> SmsHistories => Set<SmsHistory>();
-
+    public DbSet<SmsHistory> SmsHistories => Set<SmsHistory>();
     public DbSet<EmailTemplate> EmailTemplates => Set<EmailTemplate>();
 
     public DbSet<EmailHistory> EmailHistories => Set<EmailHistory>();

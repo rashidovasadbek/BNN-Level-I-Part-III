@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\N73.Notifications.Domin\N73.Notifications.Domin.csproj" />
+      <ProjectReference Include="..\N73.Notifications.Domain\N73.Notifications.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
