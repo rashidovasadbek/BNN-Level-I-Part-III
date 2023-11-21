@@ -10,7 +10,7 @@ public class NotificationRequest
     
     public NotificationTemplateType TemplateType { get; set; }
     
-    public NotificationType Type { get; set; }
+    public NotificationType? Type { get; set; }
     
     public Dictionary<string, string>? Variables { get; set; }
 }
