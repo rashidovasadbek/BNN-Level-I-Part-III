@@ -1,8 +1,8 @@
-﻿using N73.Notification.Infrastructure.Common.Settings;
+﻿using Microsoft.Extensions.Options;
+using N73.Notification.Infrastructure.Common.Settings;
 using N73.Notifications.Application.Common.Notifications.Brokers;
 using N73.Notifications.Application.Common.Notifications.Models;
 using Twilio;
-using Twilio.Base;
 using Twilio.Rest.PreviewMessaging.V1;
 using Twilio.TwiML.Messaging;
 using MessageResource = Twilio.Rest.Api.V2010.Account.MessageResource;
@@ -13,9 +13,9 @@ public class TwilioSmsSenderBroker : ISmsSenderBroker
 {
     private readonly TwilioSmsSenderSettings _twilioSmsSenderSettings;
 
-    public TwilioSmsSenderBroker(TwilioSmsSenderSettings twilioSmsSenderSettings)
+    public TwilioSmsSenderBroker(IOptions<TwilioSmsSenderSettings> twilioSmsSenderSettings)
     {
-        _twilioSmsSenderSettings = twilioSmsSenderSettings;
+        _twilioSmsSenderSettings = twilioSmsSenderSettings.Value;
     }
     public ValueTask<bool> SendAsync(SmsMessage smsMessage, CancellationToken cancellationToken)
     {
