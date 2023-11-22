@@ -7,5 +7,5 @@ public interface ISmsOrchestrationService
 {
     ValueTask<FuncResult<bool>> SendAsync(
         SmsNotificationRequest request,
-        CancellationToken cancellationToken);
+        CancellationToken cancellationToken = default);
 }

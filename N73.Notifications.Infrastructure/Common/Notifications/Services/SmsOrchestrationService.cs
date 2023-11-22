@@ -15,11 +15,11 @@ public class SmsOrchestrationService : ISmsOrchestrationService
 {
     private readonly IMapper _mapper;
     private readonly ISmsSenderService _smsSenderService;
-    private readonly ISmsRenderingService _smsRenderingService;
     private readonly ISmsHistoryService _smsHistoryService;
     private readonly NotificationDbContext _dbContext;
-    private readonly ISmsTemplateService _smsTemplateService;
     private readonly IUserService _userService;
+    private readonly ISmsTemplateService _smsTemplateService;
+    private readonly ISmsRenderingService _smsRenderingService;
 
     public SmsOrchestrationService(
         IMapper mapper,
@@ -44,17 +44,17 @@ public class SmsOrchestrationService : ISmsOrchestrationService
         SmsNotificationRequest request, 
         CancellationToken cancellationToken)
     {
-        var sendNotficationRequest = async () =>
+        var sendNotificationRequest = async () =>
         {
             var message = _mapper.Map<SmsMessage>(request);
             // get users
             // set receiver phone number and sender phone number
 
             var senderUser =
-                await _userService.GetByIdAsync(request.SenderUserId!.Value, cancellationToken: cancellationToken);
+                (await _userService.GetByIdAsync(request.SenderUserId!.Value, cancellationToken: cancellationToken))!;
 
             var receiverUser =
-                await _userService.GetByIdAsync(request.ReceiverUserId, cancellationToken: cancellationToken);
+                (await _userService.GetByIdAsync(request.ReceiverUserId, cancellationToken: cancellationToken))!;
 
             message.SenderPhoneNumber = senderUser.PhoneNumber;
             message.ReceiverPhoneNumber = receiverUser.PhoneNumber;
@@ -83,6 +83,6 @@ public class SmsOrchestrationService : ISmsOrchestrationService
             return history.IsSuccessful;
         };
 
-        return await sendNotficationRequest.GetValueAsync();
+        return await sendNotificationRequest.GetValueAsync();
     }
 }

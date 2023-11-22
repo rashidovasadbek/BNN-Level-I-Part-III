@@ -12,13 +12,13 @@ public interface IEmailTemplateService
         bool asNoTracking = false,
         CancellationToken cancellationToken = default);
 
-    ValueTask<EmailTemplate> GetByTypeAsync(
+    ValueTask<EmailTemplate?> GetByTypeAsync(
         NotificationTemplateType templateType,
         bool asNoTracking = false,
         CancellationToken cancellationToken = default);
 
     ValueTask<EmailTemplate> CreateAsync(
         EmailTemplate emailTemplate,
-        bool asNoTracking = false,
+        bool saveChange = true,
         CancellationToken cancellationToken = default);
 }

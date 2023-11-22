@@ -46,10 +46,10 @@ public class EmailOrchestrationService : IEmailOrchestrationService
            // GetUsers
            // set receiver phone number and sender phone number
            var senderUser =
-               (await _userService.GetByIdAsync(request.SenderUserId!.Value, cancellationToken: cancellationToken));
+               (await _userService.GetByIdAsync(request.SenderUserId!.Value, cancellationToken: cancellationToken))!;
 
            var receiverUser =
-               (await _userService.GetByIdAsync(request.ReceiverUserId, cancellationToken: cancellationToken));
+               (await _userService.GetByIdAsync(request.ReceiverUserId, cancellationToken: cancellationToken))!;
 
            message.Template =
                await _emailTemplateService.GetByTypeAsync(request.TemplateType, true, cancellationToken) ??

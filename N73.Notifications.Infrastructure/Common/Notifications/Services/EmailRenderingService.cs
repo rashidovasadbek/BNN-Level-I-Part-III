@@ -1,9 +1,11 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
+using Microsoft.Extensions.Options;
 using N73.Notification.Infrastructure.Common.Settings;
 using N73.Notifications.Application.Common.Notifications.Models;
 using N73.Notifications.Application.Common.Notifications.Services;
-using Twilio.Base;
+
+
 
 namespace N73.Notification.Infrastructure.Common.Notifications.Services;
 
@@ -11,9 +13,9 @@ public class EmailRenderingService : IEmailRenderingService
 {
     private readonly TemplateRenderingSettings _templateRenderingSettings;
 
-    public EmailRenderingService(TemplateRenderingSettings templateRenderingSettings)
+    public EmailRenderingService(IOptions<TemplateRenderingSettings> templateRenderingSettings)
     {
-        _templateRenderingSettings = templateRenderingSettings;
+        _templateRenderingSettings = templateRenderingSettings.Value;
     }
     public ValueTask<string> RenderAsync(EmailMessage emailMessage, CancellationToken cancellationToken = default)
     {

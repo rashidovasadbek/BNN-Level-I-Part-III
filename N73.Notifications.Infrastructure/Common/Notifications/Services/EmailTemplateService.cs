@@ -17,7 +17,7 @@ public class EmailTemplateService : IEmailTemplateService
 
     public EmailTemplateService(
         IEmailTemplateRepository emailTemplateRepository,
-        IValidator<EmailTemplate> emailTemplateValidator
+       IValidator<EmailTemplate> emailTemplateValidator
         )
     {
         _emailTemplateRepository = emailTemplateRepository;
@@ -51,7 +51,7 @@ public class EmailTemplateService : IEmailTemplateService
 
     public ValueTask<EmailTemplate> CreateAsync(
         EmailTemplate emailTemplate,
-        bool asNoTracking = false,
+        bool saveChange = true,
         CancellationToken cancellationToken = default
     )
     {
@@ -59,6 +59,6 @@ public class EmailTemplateService : IEmailTemplateService
         if (!validationResult.IsValid)
             throw new ValidationException(validationResult.Errors);
 
-        return _emailTemplateRepository.CreateAsync(emailTemplate, asNoTracking, cancellationToken);
+        return _emailTemplateRepository.CreateAsync(emailTemplate, saveChange, cancellationToken);
     }
 }

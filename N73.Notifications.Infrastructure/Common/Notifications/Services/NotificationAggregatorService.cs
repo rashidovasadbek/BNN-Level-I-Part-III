@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Options;
 using N73.Notification.Infrastructure.Common.Settings;
 using N73.Notifications.Application.Common.Identity.Services;
 using N73.Notifications.Application.Common.Models.Querying;
@@ -8,29 +9,28 @@ using N73.Notifications.Domin.Common.Exceptions;
 using N73.Notifications.Domin.Entities;
 using N73.Notifications.Domin.Enums;
 using N73.Notifications.Domin.Extensions;
-using Twilio.Base;
 
 namespace N73.Notification.Infrastructure.Common.Notifications.Services;
 
 public class NotificationAggregatorService : INotificationAggregatorService
 {
     private readonly IMapper _mapper;
-    private readonly NotificationSettings _notificationSettings;
+    private readonly IOptions<NotificationSettings> _notificationSettings;
     private readonly ISmsTemplateService _smsTemplateService;
     private readonly IEmailTemplateService _emailTemplateService;
     private readonly ISmsOrchestrationService _smsOrchestrationService;
     private readonly IEmailOrchestrationService _emailOrchestrationService;
-    private readonly IUserSettingsService _userSettingsService;
+   // private readonly IUserSettingsService _userSettingsService;
     private readonly IUserService _userService;
 
     public NotificationAggregatorService(
         IMapper mapper,
-        NotificationSettings notificationSettings,
+        IOptions<NotificationSettings> notificationSettings,
         ISmsTemplateService smsTemplateService,
         IEmailTemplateService emailTemplateService,
         ISmsOrchestrationService smsOrchestrationService,
         IEmailOrchestrationService emailOrchestrationService,
-        IUserSettingsService userSettingsService,
+        //IUserSettingsService userSettingsService,
         IUserService userService
         )
     {
@@ -40,7 +40,7 @@ public class NotificationAggregatorService : INotificationAggregatorService
         _emailTemplateService = emailTemplateService;
         _smsOrchestrationService = smsOrchestrationService;
         _emailOrchestrationService = emailOrchestrationService;
-        _userSettingsService = userSettingsService;
+       // _userSettingsService = userSettingsService;
         _userService = userService;
     }
     
@@ -66,7 +66,7 @@ public class NotificationAggregatorService : INotificationAggregatorService
             
             // If user not specified preferred notification type get from settings
             if (!notificationRequest.Type.HasValue)
-                notificationRequest.Type = _notificationSettings.DefaultNotificationType;
+                notificationRequest.Type = _notificationSettings.Value.DefaultNotificationType;
 
             var sendNotificationTask = notificationRequest.Type switch
             {

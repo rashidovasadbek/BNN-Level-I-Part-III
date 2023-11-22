@@ -1,9 +1,10 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using Microsoft.Extensions.Options;
 using N73.Notification.Infrastructure.Common.Settings;
 using N73.Notifications.Application.Common.Notifications.Brokers;
 using N73.Notifications.Application.Common.Notifications.Models;
-using Twilio.Base;
+
 
 namespace N73.Notification.Infrastructure.Common.Notifications.Brokers;
 
@@ -11,9 +12,9 @@ public class SmtpEmailSenderBroker : IEmailSenderBroker
 {
     private readonly SmtpEmailSenderSettings _smtpEmailSenderSettings;
 
-    public SmtpEmailSenderBroker(SmtpEmailSenderSettings smtpEmailSenderSettings)
+    public SmtpEmailSenderBroker(IOptions<SmtpEmailSenderSettings> smtpEmailSenderSettings)
     {
-        _smtpEmailSenderSettings = smtpEmailSenderSettings;
+        _smtpEmailSenderSettings = smtpEmailSenderSettings.Value;
     }
     
     public ValueTask<bool> SendAsync(EmailMessage emailMessage, CancellationToken cancellationToken)

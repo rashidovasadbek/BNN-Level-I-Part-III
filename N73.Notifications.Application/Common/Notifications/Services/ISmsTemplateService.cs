@@ -19,6 +19,6 @@ public interface ISmsTemplateService
 
     ValueTask<SmsTemplate> CreateAsync(
         SmsTemplate smsTemplate,
-        bool saveChange = false,
+        bool saveChange = true,
         CancellationToken cancellationToken = default);
 }

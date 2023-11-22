@@ -4,10 +4,10 @@ namespace N73.Notifications.Application.Common.Identity.Services;
 
 public interface IUserService
 {
-    ValueTask<IList<User>> GetByIdsAsync(
+    /*ValueTask<IList<User>> GetByIdsAsync(
         IEnumerable<Guid> usersId,
         bool asNoTracking = false,
-        CancellationToken cancellationToken = default);
+        CancellationToken cancellationToken = default);*/
 
     ValueTask<User?> GetSystemUserAsync(bool asNoTracking = false, CancellationToken cancellationToken = default);
 
