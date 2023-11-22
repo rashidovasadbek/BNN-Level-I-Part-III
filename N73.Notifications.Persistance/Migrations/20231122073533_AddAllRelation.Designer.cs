@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace N73.Notifications.Persistance.Migrations
 {
     [DbContext(typeof(NotificationDbContext))]
-    [Migration("20231117051332_AddAllRelations")]
-    partial class AddAllRelations
+    [Migration("20231122073533_AddAllRelation")]
+    partial class AddAllRelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,6 +91,45 @@ namespace N73.Notifications.Persistance.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("N73.Notifications.Domin.Entities.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("N73.Notifications.Domin.Entities.UserSettings", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
+
+                    b.Property<int?>("PreferredNotificationType")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserSettings");
+                });
+
             modelBuilder.Entity("N73.Notifications.Domin.Entities.EmailHistory", b =>
                 {
                     b.HasBaseType("N73.Notifications.Domin.Entities.NotificationHistory");
@@ -160,9 +199,24 @@ namespace N73.Notifications.Persistance.Migrations
                     b.Navigation("Template");
                 });
 
+            modelBuilder.Entity("N73.Notifications.Domin.Entities.UserSettings", b =>
+                {
+                    b.HasOne("N73.Notifications.Domin.Entities.User", null)
+                        .WithOne("UserSettings")
+                        .HasForeignKey("N73.Notifications.Domin.Entities.UserSettings", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("N73.Notifications.Domin.Entities.NotificationTemplate", b =>
                 {
                     b.Navigation("Histories");
+                });
+
+            modelBuilder.Entity("N73.Notifications.Domin.Entities.User", b =>
+                {
+                    b.Navigation("UserSettings")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

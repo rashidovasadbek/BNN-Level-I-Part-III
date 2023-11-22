@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace N73.Notifications.Persistance.Migrations
 {
     /// <inheritdoc />
-    public partial class AddAllRelations : Migration
+    public partial class AddAllRelation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,21 @@ namespace N73.Notifications.Persistance.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_NotificationTemplates", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserName = table.Column<string>(type: "text", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    EmailAddress = table.Column<string>(type: "text", nullable: false),
+                    Role = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -55,6 +70,24 @@ namespace N73.Notifications.Persistance.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserSettings",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    PreferredNotificationType = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserSettings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserSettings_Users_Id",
+                        column: x => x.Id,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_NotificationHistories_TemplateId",
                 table: "NotificationHistories",
@@ -68,7 +101,13 @@ namespace N73.Notifications.Persistance.Migrations
                 name: "NotificationHistories");
 
             migrationBuilder.DropTable(
+                name: "UserSettings");
+
+            migrationBuilder.DropTable(
                 name: "NotificationTemplates");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
