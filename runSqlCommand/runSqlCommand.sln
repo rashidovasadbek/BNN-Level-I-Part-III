@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "runSqlCommandWithTelegramBot", "runSqlCommandWithTelegramBot\runSqlCommandWithTelegramBot.csproj", "{B3189DC6-E648-4D6A-AFA2-F9D4370C1E56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3189DC6-E648-4D6A-AFA2-F9D4370C1E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3189DC6-E648-4D6A-AFA2-F9D4370C1E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3189DC6-E648-4D6A-AFA2-F9D4370C1E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3189DC6-E648-4D6A-AFA2-F9D4370C1E56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
