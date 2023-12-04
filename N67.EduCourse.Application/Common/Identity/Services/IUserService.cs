@@ -7,7 +7,7 @@ namespace N67.EduCourse.Application.Common.Identity.Services;
 public interface IUserService
 {
     IQueryable<UserDto> Get(Expression<Func<UserDto, bool>>? predicate = null);
-
+    
     ValueTask<UserDto?> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);
 
     ValueTask<UserDto> CreateAsync(UserDto userDto, bool saveChanges = true, CancellationToken cancellationToken = default);
