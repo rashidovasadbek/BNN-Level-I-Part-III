@@ -5,7 +5,7 @@ namespace Cashing.Infra.Persistence.DataContexts;
 
 public class IdentityDbContext(DbContextOptions<IdentityDbContext> options) : DbContext(options)
 {
-    public DbSet<User> User => Set<User>();
+    public DbSet<User> Users => Set<User>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(IdentityDbContext).Assembly);
