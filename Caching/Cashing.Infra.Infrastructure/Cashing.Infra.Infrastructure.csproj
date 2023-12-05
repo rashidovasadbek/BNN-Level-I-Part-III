@@ -11,4 +11,8 @@
       <ProjectReference Include="..\Cashing.Infra.Persistence\Cashing.Infra.Persistence.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="LazyCache" Version="2.4.0" />
+    </ItemGroup>
+
 </Project>

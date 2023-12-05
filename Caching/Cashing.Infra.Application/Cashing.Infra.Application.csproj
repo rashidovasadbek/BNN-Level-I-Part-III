@@ -10,10 +10,4 @@
       <ProjectReference Include="..\Cashing.Infra.Domain\Cashing.Infra.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\Extensions\" />
-      <Folder Include="Common\Identity\Service\" />
-      <Folder Include="Common\Querying\" />
-    </ItemGroup>
-
 </Project>
