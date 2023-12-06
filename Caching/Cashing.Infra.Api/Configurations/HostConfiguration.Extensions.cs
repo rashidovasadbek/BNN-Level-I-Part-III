@@ -1,6 +1,7 @@
 ﻿using Cashing.Infra.Api.Data;
 using Cashing.Infra.Application.Common.Identity.Service;
 using Cashing.Infra.Infrastructure.Common.Cashing;
+using Cashing.Infra.Infrastructure.Common.Cashing.Brokers;
 using Cashing.Infra.Infrastructure.Common.Identity.Services;
 using Cashing.Infra.Infrastructure.Common.Settings;
 using Cashing.Infra.Persistence.cashing;
@@ -20,7 +21,16 @@ public static partial class HostConfiguration
         
         //register lazy memory cache
         builder.Services.AddLazyCache();
+
+        builder.Services.AddStackExchangeRedisCache(
+            options =>
+            {
+                options.Configuration = builder.Configuration.GetConnectionString("RedisConnectionString");
+                options.InstanceName = "SimpleInfra";
+            });
+        
         builder.Services.AddSingleton<ICacheBroker, LazyMemoryCacheBroker>();
+        builder.Services.AddSingleton<ICacheBroker, RedisDistributedCacheBroker>();
 
         return builder;
     }
@@ -38,8 +48,7 @@ public static partial class HostConfiguration
 
         return builder;
     }
-
-   
+    
     private static WebApplicationBuilder AddExposers(this WebApplicationBuilder builder)
     {
         builder.Services.AddRouting(options => options.LowercaseUrls = true);
@@ -59,13 +68,9 @@ public static partial class HostConfiguration
     
     private static WebApplication UseExposers(this WebApplication app)
     {
-        if (app.Environment.IsDevelopment())
-        {
             app.UseSwagger();
             app.UseSwaggerUI();
-        }
-        
-        app.MapControllers();
+            app.MapControllers();
 
         return app;
     }

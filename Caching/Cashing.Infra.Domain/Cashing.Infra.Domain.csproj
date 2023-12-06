@@ -6,11 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\Caching\" />
-      <Folder Include="Common\Query\" />
-      <Folder Include="Comperers\" />
-      <Folder Include="Extensions\" />
-    </ItemGroup>
-
 </Project>
