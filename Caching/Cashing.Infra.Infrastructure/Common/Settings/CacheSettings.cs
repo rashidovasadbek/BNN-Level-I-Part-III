@@ -2,7 +2,7 @@
 
 public class CacheSettings
 {
-    public int AbsoluteExpirationInMinutes { get; set; }
+    public int AbsoluteExpirationInSeconds { get; set; }
     
-    public int SlidingExpirationInMinutes { get; set; }
+    public int SlidingExpirationInSeconds { get; set; }
 }
